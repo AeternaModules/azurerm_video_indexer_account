@@ -20,7 +20,7 @@ EOT
     location              = string
     name                  = string
     resource_group_name   = string
-    public_network_access = optional(string, "Enabled")
+    public_network_access = optional(string) # Default: "Enabled"
     tags                  = optional(map(string))
     identity = object({
       identity_ids = optional(set(string))
