@@ -1,3 +1,7 @@
+output "video_indexer_accounts_id" {
+  description = "Map of id values across all video_indexer_accounts, keyed the same as var.video_indexer_accounts"
+  value       = { for k, v in azurerm_video_indexer_account.video_indexer_accounts : k => v.id }
+}
 output "video_indexer_accounts_identity" {
   description = "Map of identity values across all video_indexer_accounts, keyed the same as var.video_indexer_accounts"
   value       = { for k, v in azurerm_video_indexer_account.video_indexer_accounts : k => v.identity }
