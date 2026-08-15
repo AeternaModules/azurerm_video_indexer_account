@@ -4,7 +4,7 @@ output "video_indexer_accounts_id" {
 }
 output "video_indexer_accounts_identity" {
   description = "Map of identity values across all video_indexer_accounts, keyed the same as var.video_indexer_accounts"
-  value       = { for k, v in azurerm_video_indexer_account.video_indexer_accounts : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_video_indexer_account.video_indexer_accounts : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "video_indexer_accounts_location" {
   description = "Map of location values across all video_indexer_accounts, keyed the same as var.video_indexer_accounts"
@@ -24,7 +24,7 @@ output "video_indexer_accounts_resource_group_name" {
 }
 output "video_indexer_accounts_storage" {
   description = "Map of storage values across all video_indexer_accounts, keyed the same as var.video_indexer_accounts"
-  value       = { for k, v in azurerm_video_indexer_account.video_indexer_accounts : k => v.storage if v.storage != null && length(v.storage) > 0 }
+  value       = { for k, v in azurerm_video_indexer_account.video_indexer_accounts : k => one(v.storage) if v.storage != null && length(v.storage) > 0 }
 }
 output "video_indexer_accounts_tags" {
   description = "Map of tags values across all video_indexer_accounts, keyed the same as var.video_indexer_accounts"
